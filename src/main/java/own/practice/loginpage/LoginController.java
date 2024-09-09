@@ -12,8 +12,9 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import org.json.JSONObject;
 
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 
 public class LoginController {
@@ -39,6 +40,16 @@ public class LoginController {
     @FXML
     private Label ErrMessage;
 
+
+    public void initialize() throws FileNotFoundException, IOException {
+        System.out.println("Initialize Login Page");
+        String jsonPath = "C:/Practice & Old School/Java/LoginPage/UserInfo/users.json";
+        BufferedReader jsonReader = new BufferedReader(new FileReader(jsonPath));
+        String userInfo = jsonReader.readLine();
+        jsonReader.close();
+        System.out.println(userInfo);
+        JSONObject user = new JSONObject(userInfo);
+    }
 
     public void login (ActionEvent event) throws IOException {
         ErrMessage.setText("");
