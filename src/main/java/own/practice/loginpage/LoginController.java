@@ -42,30 +42,21 @@ public class LoginController {
     private Label ErrMessage;
 
     JSONArray usersArray = new JSONArray();
-    JSONObject userElement = new JSONObject();
-    String validUser = null;
-    String validPass = null;
 
     public void initialize() throws FileNotFoundException, IOException {
-        System.out.println("Initialize Login Page");
         String jsonPath = "C:/Practice & Old School/Java/LoginPage/UserInfo/users.json";
         BufferedReader jsonReader = new BufferedReader(new FileReader(jsonPath));
         String userInfo = jsonReader.readLine();
         jsonReader.close();
-        System.out.println(userInfo);
         JSONObject userJson = new JSONObject(userInfo);
         usersArray = userJson.getJSONArray("accounts");
-        userElement = usersArray.getJSONObject(0).getJSONObject("user");
-        validUser = userElement.getString("username");
-        validPass = userElement.getString("password");
-        System.out.println(userJson+"\n"+usersArray+"\n"+userElement+"\n"+validUser+"\n"+validPass);
     }
 
     public void login (ActionEvent event) throws IOException {
         ErrMessage.setText("");
         String givenUser = username.getText();
         String givenPass = password.getText();
-        for(int i = 0; i > usersArray.length(); i++) {
+        for(int i = 0; i < usersArray.length(); i++) {
             JSONObject userItem = usersArray.getJSONObject(i).getJSONObject("user");
             if (givenUser.isEmpty() || givenPass.isEmpty()) {
                 ErrMessage.setText("Username and/or Password field is blank");
@@ -83,7 +74,6 @@ public class LoginController {
                 stage.setScene(scene);
                 stage.show();
                 stage.setResizable(false);
-                break;
             }else{
                 ErrMessage.setText("Username and/or Password are incorrect!");
             }

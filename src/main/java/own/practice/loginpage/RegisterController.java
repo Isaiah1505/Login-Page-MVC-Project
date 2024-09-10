@@ -12,8 +12,10 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
-import java.io.IOException;
+import java.io.*;
 
 public class RegisterController {
     @FXML
@@ -34,6 +36,20 @@ public class RegisterController {
     @FXML
     private Label visiblePass;
 
+    JSONObject userJson = new JSONObject();
+    JSONArray usersArray = new JSONArray();
+    String jsonPath = null;
+
+    public void initialize() throws FileNotFoundException, IOException {
+        jsonPath = "C:/Practice & Old School/Java/LoginPage/UserInfo/users.json";
+        BufferedReader jsonReader = new BufferedReader(new FileReader(jsonPath));
+        String userInfo = jsonReader.readLine();
+        jsonReader.close();
+        userJson = new JSONObject(userInfo);
+        usersArray = userJson.getJSONArray("accounts");
+        System.out.println(userJson+"\n"+usersArray);
+    }
+
     public void register(ActionEvent event) throws IOException {
         ErrMessage.setText("");
         String givenUser = username.getText();
@@ -44,6 +60,12 @@ public class RegisterController {
         else if(!(givenUser.length() >= 6 && givenUser.length() <= 15) && !(givenPass.length() >= 8 && givenPass.length() <= 20)){
             ErrMessage.setText("Username length between 6 & 15 characters, Password length between 8 & 20.");
         }else {
+            JSONObject userLogin = new JSONObject().put("username", givenUser).put("password", givenPass);
+            JSONObject user = new JSONObject().put("user", userLogin);
+            userJson.getJSONArray("accounts").put(user);
+            FileWriter writeNewUser = new FileWriter(jsonPath);
+            writeNewUser.write(userJson.toString());
+            writeNewUser.close();
             FXMLLoader loader = new FXMLLoader(ApplicationLauncher.class.getResource("Account-View.fxml"));
             Parent root = loader.load();
             AccountController AccountController = loader.getController();
