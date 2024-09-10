@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d7491c0b-09e3-47b1-9b76-c61d7c0cd432" name="Changes" comment="First commit, using org.json json read and writer">
+    <list default="true" id="d7491c0b-09e3-47b1-9b76-c61d7c0cd432" name="Changes" comment="In the process of adding reading from a json file&#10;and writing user info to the same file">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/own/practice/loginpage/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/own/practice/loginpage/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/UserInfo/users - Copy.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/UserInfo/users.json" beforeDir="false" afterPath="$PROJECT_DIR$/UserInfo/users.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -128,6 +126,8 @@
       <workItem from="1725747884779" duration="3408000" />
       <workItem from="1725890300893" duration="10769000" />
       <workItem from="1725901837002" duration="342000" />
+      <workItem from="1725902211212" duration="107000" />
+      <workItem from="1725931083709" duration="2771000" />
     </task>
     <task id="LOCAL-00001" summary="First commit, using org.json json read and writer">
       <option name="closed" value="true" />
@@ -137,7 +137,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725892389786</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="In the process of adding reading from a json file&#10;and writing user info to the same file">
+      <option name="closed" value="true" />
+      <created>1725902290719</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1725902290719</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -145,6 +153,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="First commit, using org.json json read and writer" />
-    <option name="LAST_COMMIT_MESSAGE" value="First commit, using org.json json read and writer" />
+    <MESSAGE value="In the process of adding reading from a json file&#10;and writing user info to the same file" />
+    <option name="LAST_COMMIT_MESSAGE" value="In the process of adding reading from a json file&#10;and writing user info to the same file" />
   </component>
 </project>

@@ -12,6 +12,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.*;
@@ -40,6 +41,10 @@ public class LoginController {
     @FXML
     private Label ErrMessage;
 
+    JSONArray usersArray = new JSONArray();
+    JSONObject userElement = new JSONObject();
+    String validUser = null;
+    String validPass = null;
 
     public void initialize() throws FileNotFoundException, IOException {
         System.out.println("Initialize Login Page");
@@ -48,29 +53,40 @@ public class LoginController {
         String userInfo = jsonReader.readLine();
         jsonReader.close();
         System.out.println(userInfo);
-        JSONObject user = new JSONObject(userInfo);
+        JSONObject userJson = new JSONObject(userInfo);
+        usersArray = userJson.getJSONArray("accounts");
+        userElement = usersArray.getJSONObject(0).getJSONObject("user");
+        validUser = userElement.getString("username");
+        validPass = userElement.getString("password");
+        System.out.println(userJson+"\n"+usersArray+"\n"+userElement+"\n"+validUser+"\n"+validPass);
     }
 
     public void login (ActionEvent event) throws IOException {
         ErrMessage.setText("");
         String givenUser = username.getText();
         String givenPass = password.getText();
-        if(givenUser.isEmpty() || givenPass.isEmpty()) {
-            ErrMessage.setText("Username and/or Password field is blank");
-        }else {
-            FXMLLoader loader = new FXMLLoader(ApplicationLauncher.class.getResource("Account-View.fxml"));
-            Parent root = loader.load();
-            AccountController AccountController = loader.getController();
-            AccountController.initialize(givenUser, givenPass);
-            Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-            Scene scene = new Scene(root);
-            stage.setTitle("Account Page");
-            stage.getIcons().clear();
-            Image icon = new Image(ApplicationLauncher.class.getResourceAsStream("/Icon/accountPage.png"));
-            stage.getIcons().add(icon);
-            stage.setScene(scene);
-            stage.show();
-            stage.setResizable(false);
+        for(int i = 0; i > usersArray.length(); i++) {
+            JSONObject userItem = usersArray.getJSONObject(i).getJSONObject("user");
+            if (givenUser.isEmpty() || givenPass.isEmpty()) {
+                ErrMessage.setText("Username and/or Password field is blank");
+            } else if(givenUser.equals(userItem.getString("username")) && givenPass.equals(userItem.getString("password"))) {
+                FXMLLoader loader = new FXMLLoader(ApplicationLauncher.class.getResource("Account-View.fxml"));
+                Parent root = loader.load();
+                AccountController AccountController = loader.getController();
+                AccountController.initialize(givenUser, givenPass);
+                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                Scene scene = new Scene(root);
+                stage.setTitle("Account Page");
+                stage.getIcons().clear();
+                Image icon = new Image(ApplicationLauncher.class.getResourceAsStream("/Icon/accountPage.png"));
+                stage.getIcons().add(icon);
+                stage.setScene(scene);
+                stage.show();
+                stage.setResizable(false);
+                break;
+            }else{
+                ErrMessage.setText("Username and/or Password are incorrect!");
+            }
         }
 
     }
