@@ -8,7 +8,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Background;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -21,7 +20,7 @@ public class AccountController {
     private Menu theme;
 
     @FXML
-    private Label welcomeTxt;
+    private Label welcomeTxt, passTxt, userTxt;
 
     @FXML
     private MenuItem darkTheme;
@@ -46,7 +45,26 @@ public class AccountController {
 
     public void initialize(String givenUser, String givenPass) {
         welcomeTxt.setText("Welcome, "+givenUser.substring(0,6));
+        userDisplay.setText(givenUser);
+        passDisplay.setText(givenPass);
+        userDisplay.setVisible(false);
+        passDisplay.setVisible(false);
+        userTxt.setVisible(false);
+        passTxt.setVisible(false);
+    }
 
+    public void ToggleUserInfo(ActionEvent event){
+        if(!userTxt.isVisible()) {
+            userDisplay.setVisible(true);
+            passDisplay.setVisible(true);
+            userTxt.setVisible(true);
+            passTxt.setVisible(true);
+        }else{
+            userDisplay.setVisible(false);
+            passDisplay.setVisible(false);
+            userTxt.setVisible(false);
+            passTxt.setVisible(false);
+        }
     }
 
     public void switchDark(ActionEvent event) {

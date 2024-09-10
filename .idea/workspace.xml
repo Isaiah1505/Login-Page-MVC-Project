@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d7491c0b-09e3-47b1-9b76-c61d7c0cd432" name="Changes" comment="trying to read/write from json files&#10;- reads from json to find username and password&#10;- authentication doesn't work at the moment&#10;- adding new accounts doesn't work yet">
+    <list default="true" id="d7491c0b-09e3-47b1-9b76-c61d7c0cd432" name="Changes" comment="login and registering accounts&#10;- accounts that meet validation criteria are created&#10;- can then be logged in, saved to json file so account exists after app closes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserInfo/users.json" beforeDir="false" afterPath="$PROJECT_DIR$/UserInfo/users.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/own/practice/loginpage/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/own/practice/loginpage/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/own/practice/loginpage/AccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/own/practice/loginpage/AccountController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/own/practice/loginpage/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/own/practice/loginpage/RegisterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/own/practice/loginpage/Account-View.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/own/practice/loginpage/Account-View.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -130,7 +130,7 @@
       <workItem from="1725901837002" duration="342000" />
       <workItem from="1725902211212" duration="107000" />
       <workItem from="1725931083709" duration="3421000" />
-      <workItem from="1725975112054" duration="3807000" />
+      <workItem from="1725975112054" duration="6334000" />
     </task>
     <task id="LOCAL-00001" summary="First commit, using org.json json read and writer">
       <option name="closed" value="true" />
@@ -156,7 +156,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725934422187</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="login and registering accounts&#10;- accounts that meet validation criteria are created&#10;- can then be logged in, saved to json file so account exists after app closes">
+      <option name="closed" value="true" />
+      <created>1725979473725</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1725979473725</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -166,6 +174,7 @@
     <MESSAGE value="First commit, using org.json json read and writer" />
     <MESSAGE value="In the process of adding reading from a json file&#10;and writing user info to the same file" />
     <MESSAGE value="trying to read/write from json files&#10;- reads from json to find username and password&#10;- authentication doesn't work at the moment&#10;- adding new accounts doesn't work yet" />
-    <option name="LAST_COMMIT_MESSAGE" value="trying to read/write from json files&#10;- reads from json to find username and password&#10;- authentication doesn't work at the moment&#10;- adding new accounts doesn't work yet" />
+    <MESSAGE value="login and registering accounts&#10;- accounts that meet validation criteria are created&#10;- can then be logged in, saved to json file so account exists after app closes" />
+    <option name="LAST_COMMIT_MESSAGE" value="login and registering accounts&#10;- accounts that meet validation criteria are created&#10;- can then be logged in, saved to json file so account exists after app closes" />
   </component>
 </project>
