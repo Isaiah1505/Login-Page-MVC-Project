@@ -6,6 +6,7 @@
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
@@ -25,7 +26,7 @@
             </Menu>
         </menus>
       </MenuBar>
-      <Label fx:id="welcomeTxt" alignment="TOP_LEFT" layoutX="14.0" layoutY="41.0" prefHeight="61.0" prefWidth="161.0" text="Welcome, User" wrapText="true">
+      <Label fx:id="welcomeTxt" alignment="TOP_LEFT" layoutX="14.0" layoutY="41.0" prefHeight="33.0" prefWidth="195.0" text="Welcome, User" wrapText="true">
          <font>
             <Font size="20.0" />
          </font>
@@ -35,9 +36,11 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </Button>
-      <TextField fx:id="userDisplay" editable="false" layoutX="14.0" layoutY="121.0" />
-      <TextField fx:id="passDisplay" editable="false" layoutX="14.0" layoutY="188.0" />
-      <Label fx:id="userTxt" layoutX="14.0" layoutY="94.0" prefHeight="17.0" prefWidth="117.0" text="Username:" />
-      <Label fx:id="passTxt" layoutX="14.0" layoutY="161.0" prefHeight="17.0" prefWidth="117.0" text="Password:" />
+      <TextField fx:id="userDisplay" editable="false" layoutX="13.0" layoutY="235.0" />
+      <TextField fx:id="passDisplay" editable="false" layoutX="13.0" layoutY="295.0" />
+      <Label fx:id="userTxt" layoutX="13.0" layoutY="209.0" prefHeight="17.0" prefWidth="117.0" text="Username:" />
+      <Label fx:id="passTxt" layoutX="13.0" layoutY="269.0" prefHeight="17.0" prefWidth="117.0" text="Password:" />
+      <ImageView fx:id="profilePic" fitHeight="100.0" fitWidth="105.0" layoutX="13.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true" />
+      <Button fx:id="imageBtn" layoutX="13.0" layoutY="175.0" mnemonicParsing="false" onAction="#chooseImage" text="Change Image" />
    </children>
 </AnchorPane>

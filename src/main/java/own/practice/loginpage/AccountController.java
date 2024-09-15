@@ -7,9 +7,11 @@ import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-
+import java.io.File;
 import java.io.IOException;
 
 public class AccountController {
@@ -35,13 +37,16 @@ public class AccountController {
     private MenuBar menuBar;
 
     @FXML
-    private Button signoutBtn;
+    private Button signoutBtn, imageBtn;
 
     @FXML
     private TextField passDisplay;
 
     @FXML
     private TextField userDisplay;
+
+    @FXML
+    private ImageView profilePic;
 
     public void initialize(String givenUser, String givenPass) {
         welcomeTxt.setText("Welcome, "+givenUser.substring(0,6));
@@ -51,6 +56,23 @@ public class AccountController {
         passDisplay.setVisible(false);
         userTxt.setVisible(false);
         passTxt.setVisible(false);
+        imageBtn.setVisible(false);
+        profilePic.setImage(new Image(getClass().getResourceAsStream("/Images/blankProfilePic.png")));
+    }
+
+    public void chooseImage(ActionEvent event){
+        FileChooser newProfilePic = new FileChooser();
+        newProfilePic.setTitle("Choose Profile Picture");
+        // Change directory
+        newProfilePic.setInitialDirectory(new File("C:/Practice & Old School/Java/LoginPage/src/main/resources/Images"));
+        newProfilePic.setSelectedExtensionFilter(new FileChooser.ExtensionFilter("Image Files", "*.jpg", "*.png"));
+        String profileImagePath = String.valueOf(newProfilePic.showOpenDialog(new Stage()));
+        File profileImg = new File(profileImagePath);
+        profilePic.setImage(new Image(profileImg.toURI().toString()));
+        System.out.println(profileImagePath);
+        if(!(profileImagePath.endsWith(".png") || profileImagePath.endsWith(".jpg")) || profileImagePath == null) {
+            profilePic.setImage(new Image(getClass().getResourceAsStream("/Images/blankProfilePic.png")));
+        }
     }
 
     public void ToggleUserInfo(ActionEvent event){
@@ -59,11 +81,14 @@ public class AccountController {
             passDisplay.setVisible(true);
             userTxt.setVisible(true);
             passTxt.setVisible(true);
+            imageBtn.setVisible(true);
         }else{
             userDisplay.setVisible(false);
             passDisplay.setVisible(false);
             userTxt.setVisible(false);
             passTxt.setVisible(false);
+            imageBtn.setVisible(false);
+
         }
     }
 
